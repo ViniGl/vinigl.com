@@ -118,7 +118,7 @@
                 const capacidade_user=corrente*TEMPO*1000;
                 // alert(capacidade_user);
                 var preco_mais_barato=99999999;
-                var indice_referencia;
+                var precos = [];
                 function find_ddp_capacidade(capacidade_user,ddp){
                     for (let index = 0; index < pilhas_possiveis.length; index++) {
                         const element = pilhas_possiveis[index];
@@ -144,9 +144,10 @@
                         // alert(Math.ceil(dif_ddp));
                         // alert(Math.ceil(dif_cap));
                         
-
+                        precos.push(baterias*element.preco);
                     }
-                    alert(pilhas_possiveis[indice_referencia].name);
+                    precos.sort();
+                    alert("Melhores pilhas : " + precos[0], precos[1], precos[2]);
                 }
                 find_ddp_capacidade(capacidade_user,DDP);
 
