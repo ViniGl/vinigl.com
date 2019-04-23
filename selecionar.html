@@ -144,10 +144,10 @@
                         // alert(Math.ceil(dif_ddp));
                         // alert(Math.ceil(dif_cap));
                         
-                        precos.push(baterias*element.preco);
+                        precos.push([index,baterias*element.preco]);
                     }
                     precos.sort();
-                    alert("Melhores pilhas : " + precos[0], precos[1], precos[2]);
+                    alert("Melhores pilhas : " + pilhas_possiveis[precos[0][0]].name + precos[0][1], pilhas_possiveis[precos[1][0]].name + precos[1][1], pilhas_possiveis[precos[2][0]].name + precos[2][1]);
                 }
                 find_ddp_capacidade(capacidade_user,DDP);
 
