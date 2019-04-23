@@ -111,10 +111,10 @@
     </div>
     <div class="solucoes" id="displaySolucoes"></div>
     <div class="PerguntaSolucoes" id="displayPerguntas">
-        <p>Qual a solucao da primeira solucao ?:
+        <p>Qual a concentracao da primeira solucao ?:
             <input type="number" id="concentracao1" name="concentracao1" min="0" placeholder="exemplo: 1.5 ou 0.6">
         </p>
-        <p>Qual a solucao da segunda solucao ?:
+        <p>Qual a concentracao da segunda solucao ?:
             <input type="number" id="concentracao2" name="concentracao2" min="0" placeholder="exemplo: 1.5 ou 0.6">
         </p>
         <p>Temperatura de funcionamento?:
@@ -205,11 +205,17 @@
             var metal2 = selector2[selector2.selectedIndex].value;
 
             const metais_possiveis = [
-                { name: 'Cobre', substancias: ["CuSO4"], preco: 6445, ele: 2, redox: { 'Cu2+': 1, 'e-': 2 }, ox: { 'Cu': 1 }, potRed: 0.337 },
-                { name: 'Niquel', substancias: ["Ni(OH)2"], preco: 12628, ele: 1, redox: { 'Ni2+': 1, 'e-': 2 }, ox: { 'Ni': 1 }, potRed: -0.25 },
-                { name: 'Zinco', substancias: ["Zn(NO3)2"], preco: 2628, ele: 2, redox: { 'Zn2+': 1, 'e-': 2 }, ox: { 'Zn': 1 }, potRed: -0.763 },
-                { name: 'Chumbo', substancias: ["Pb(NO3)2"], preco: 1928, ele: 1, redox: { 'Pb2+': 1, 'e-': 2 }, ox: { 'Pb': 1 }, potRed: -0.126 },
-                { name: 'Ferro', substancias: ["FeCl3"], preco: 93, ele: 3, redox: { 'Fe3+': 1, 'e-': 3 }, ox: { 'Fe': 1 }, potRed: -0.04 }
+                { name: 'Cobre', substancias: ["CuSO4"], preco: 6445, ele: 2, redox: { 'Cu2+': 1, 'e-': 2 }, ox: { 'Cu': 1 }, potRed: "0.337" , massMol: 635460},
+                { name: 'Niquel', substancias: ["Ni(OH)2"], preco: 12628, ele: 2, redox: { 'Ni2+': 1, 'e-': 2 }, ox: { 'Ni': 1 }, porRed: "-0.25" , massMol: 58.69340},
+                { name: 'Zinco', substancias: ["Zn(NO3)2"], preco: 2628, ele: 2, rtempoedox: { 'Zn2+': 1, 'e-': 2 }, ox: { 'Zn': 1 }, potRed: "-0.763" , massMol: 65.3800},
+                { name: 'Chumbo', substancias: ["Pb(NO3)2"], preco: 1928, ele: 2, redox: { 'Pb2+': 1, 'e-': 2 }, ox: { 'Pb': 1 }, potRed: "-0.126", massMol : 207.2000 },
+                { name: 'Ferro', substancias: ["FeCl3"], preco: 93, ele: 3, redox: { 'Fe3+': 1, 'e-': 3 }, ox: { 'Fe': 1 }, potRed: "-0.04", massMol : 55.8450 },
+                
+                { name: 'Cromo', substancias: ["CrCl3"], preco: 19560, ele: 3, redox: { 'Cr3+': 1, 'e-': 3 }, ox: { 'Cr': 1 }, potRed: "-0.74", massMol : 51.9961 },
+                { name: 'Sodio', substancias: ["Na(OH)"], preco: 90, ele: 1, redox: { 'Na+': 1, 'e-': 1 }, ox: { 'Na': 1 }, potRed: "-2.714", massMol : 22.989769 },
+                { name: 'Cobalto', substancias: ["Co(NO3)2"], preco: 35500, ele: 2, redox: { 'Co2+': 1, 'e-': 2 }, ox: { 'Co': 1 }, potRed: "-0.28", massMol : 58.933195 },
+                { name: 'Calcio', substancias: ["CaCl2"], preco: 200000, ele: 2, redox: { 'Ca2+': 1, 'e-': 2 }, ox: { 'Ca': 1 }, potRed: "-2.87", massMol : 40.078 },
+                { name: 'Estanho', substancias: ["SnCl2"], preco: 1928, ele: 2, redox: { 'Sn2+': 1, 'e-': 2 }, ox: { 'Sn': 1 }, potRed: "-0.14", massMol : 118.71 }
             ];
             getMetal1 = metais_possiveis.find(possivel_metal => possivel_metal.name === metal1);
             getMetal2 = metais_possiveis.find(possivel_metal => possivel_metal.name === metal2);
@@ -255,11 +261,11 @@
             const capCargaVar = capCarga((getMetal1.ele * getMetal2.ele));
             const round=2;
             const gramas=1;
-            document.getElementById('DDP').innerHTML = parseFloat(ddpVar).toFixed(round);
-            document.getElementById('Capacidade_carga').innerHTML = parseFloat(capCargaVar).toFixed(round);
+            document.getElementById('DDP').innerHTML = parseFloat(ddpVar).toFixed(round)+ "V";
+            document.getElementById('Capacidade_carga').innerHTML = parseFloat(capCargaVar).toFixed(round) + "Ah";
             document.getElementById('Densidade_energia').innerHTML =parseFloat(densEnerg(ddpVar,(getMetal1.ele * getMetal2.ele))).toFixed(round);
             document.getElementById('Densidade_carga').innerHTML = parseFloat(densCarga(capCargaVar)).toFixed(round);
-            document.getElementById('Custo').innerHTML = parseFloat((getMetal1.preco/1000+getMetal2.preco/1000)*gramas).toFixed(round);
+            document.getElementById('Custo').innerHTML = parseFloat((getMetal1.preco/1000+getMetal2.preco/1000)*gramas).toFixed(round) + "Reais";
             
         }
 
