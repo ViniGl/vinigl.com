@@ -96,6 +96,12 @@
                 <option value="Zinco">Zinco</option>
                 <option value="Chumbo">Chumbo</option>
                 <option value="Ferro">Ferro</option>
+                <option value="Cromo">Cromo</option>
+                <option value="Cobalto">Cobalto</option>
+                <option value="Sodio">Sodio</option>
+                <option value="Calcio">Calcio</option>
+                <option value="Estanho">Estanho</option>
+                
 
             </select>
             <p>Escolha o segundo metal:
@@ -105,6 +111,11 @@
                     <option value="Zinco">Zinco</option>
                     <option value="Chumbo">Chumbo</option>
                     <option value="Ferro">Ferro</option>
+                    <option value="Cromo">Cromo</option>
+                    <option value="Cobalto">Cobalto</option>
+                    <option value="Sodio">Sodio</option>
+                    <option value="Calcio">Calcio</option>
+                    <option value="Estanho">Estanho</option>
 
                 </select>
                 <button onclick="metaisfunction()">Registrar metal</button>
@@ -182,13 +193,13 @@
         function densEnerg(ddp, mols){
             
             const P = ddp * (mols*96490);
-            const V = 20 ;
+            const V = 60 ;
 
             return (P) / V;
         }
 
         function densCarga(capCarga) {
-            const V = 20 ;
+            const V = 60 ;
 
             return capCarga / V;
         }
