@@ -135,7 +135,7 @@
                            // element.capacidade+=element.capacidade;
                         dif_cap=capacidade_user/element.capacidade;
                         // }
-                        const baterias=Math.ceil(dif_ddp)+Math.ceil(dif_cap);
+                        const baterias=Math.ceil(dif_ddp)*Math.ceil(dif_cap);
                         // alert(baterias);
                         if(preco_mais_barato>(baterias*element.preco)){
                             preco_mais_barato=element.preco*baterias;
